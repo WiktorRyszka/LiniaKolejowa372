@@ -32,8 +32,18 @@
 				$.scrollTo(0);
 				
 				$('.scrollup').click(function() { $.scrollTo($('body'), 750); });
+				
 				$('#link1').click(function() { $.scrollTo($('#pociag1'), 500); });
 				$('#link2').click(function() { $.scrollTo($('#pociag2'), 500); });
+				
+				<!-- ######################## BOJANOWO ######################## -->
+				
+				$('#link3').click(function() { $.scrollTo($('#historia1'), 500); });
+				$('#link4').click(function() { $.scrollTo($('#uklad1'), 500); });
+				$('#link5').click(function() { $.scrollTo($('#zdj1'), 500); });
+				
+				<!-- ######################## ZABOROWICE ######################## -->
+				
 			}
 			);
 			
@@ -63,15 +73,22 @@
 			
 			<div id="spis">
 				
+						<!-- ######################## BOJANOWO ######################## -->
+				
 				<ol>
 					<li type="square"><span style="color: #00cc00"></span>
 						<a href="/" onClick="op('bojanowo'); return false; "><span style="color: #00cc00">Bojanowo</a></span>
 							<div id="bojanowo" style="display:none">
-								<p>Historia stacji</p>
-								<p>Układ torowy</p>
-								<p>Zdjęcia</p>
+							
+								<ol><a id="link3" href="# " style="color: black"><p>Historia stacji</p></a>		
+								<a id="link4" href="# " style="color: black"><p>Układ torowy</p></a>
+								<a id="link5" href="# " style="color: black"><p>Zdjęcia</p></a>
+
 							</div>
 					</li>
+					
+						<!-- ######################## ZABOROWICE ######################## -->
+					
 					<li type="square"><span style="color: #00b36b"></span>
 						<a href="/" onClick="op('zaborowice'); return false; "><span style="color: #00b36b">Zaborowice</a></span>
 							<div id="zaborowice" style="display:none">
@@ -242,6 +259,8 @@
 						</p>
 					</center>
 					
+						<!-- ######################## SLAJD 0.1 ######################## -->
+					
 					<center>
 						<p style="text-indent: 5%; ">Linia ta jest linią jednotorową. Otwarcie ruchu na odcinku 
 							<span style="color: #00cc00">Bojanowo</span>
@@ -306,6 +325,9 @@
 					
 				</p>
 				<p id="pociag1">
+				
+					<!-- ######################## SLAJD 0.2 ######################## -->
+				
 					<center>
 						<span style="font-size:30px;">
 							Pociąg Specjalny
@@ -336,6 +358,8 @@
 				</p>	
 					
 				<br></br>	
+				
+					<!-- ######################## SLAJD 1.1 ######################## -->
 					
 					<center id="pociag2">
 						<span style="font-size:35px;">
@@ -381,6 +405,67 @@
 						<img src="img/4zdj.jpg">
 					</center>
 				</p>
+				
+				<br></br>
+			</div>
+			<div>
+			
+				<p>
+					<center>
+						<span style="font-size: 80px; color: #1a66ff">
+							Opisy stacji
+						</span>
+					</center>
+				</p>
+			
+				<!-- ######################## BOJANOWO ######################## -->
+			
+				<div id="slajd">
+				
+					<center>
+						<span style="font-size:75px; color: #00cc00">Bojanowo</span>
+					</center>
+					
+					<span style="font-size:20px; color= #00cc00">
+						<p>
+							<center id="historia1">
+								<span style="font-size:40px; color= #00cc00">
+									Historia stacji
+								</span>
+							</center>
+						</p>
+						
+						<p style="text-indent: 5%;">
+							Bojanowo znajduje się w wojewódctwie wielkopolskim
+						</p>
+						
+						<center>
+							<span id ="uklad1" style="font-size:40px; color= #00cc00">
+								Układ torowy
+							</span>
+						
+							<br></br>
+						
+						</center>
+					
+						<center>
+							<img src="img/bojanowo/bojanowo.png" width="1200" height="300">
+						</center>
+						
+							<br></br>
+						
+						<center>
+							<span id ="zdj1" style="font-size:40px; color= #00cc00">
+								Zdjęcia
+							</span>
+						
+							<br></br>
+						
+						</center>
+						
+					</span>
+					
+				</div>
 					
 			</div>
 			
