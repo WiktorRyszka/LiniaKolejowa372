@@ -194,3 +194,13 @@ ol > li
 	bottom: 50px;
 	display: none;
 }
+
+.u-blowUpImg:hover {
+  cursor: zoom-in; /* Kursor przybliżenia */
+}
+
+#slajd
+{
+	padding: 20px 40px;
+	text-align: justify;
+}

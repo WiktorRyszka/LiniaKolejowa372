@@ -31,7 +31,7 @@
 				//zresetuj scrolla
 				$.scrollTo(0);
 				
-				$('.scrollup').click(function() { $.scrollTo($('body'), 750); });
+				$('.scrollup').click(function() { $.scrollTo($('body'), 1500); });
 				
 				$('#link1').click(function() { $.scrollTo($('#pociag1'), 500); });
 				$('#link2').click(function() { $.scrollTo($('#pociag2'), 500); });
@@ -43,6 +43,22 @@
 				$('#link5').click(function() { $.scrollTo($('#zdj1'), 500); });
 				
 				<!-- ######################## ZABOROWICE ######################## -->
+				
+				$('#link6').click(function() { $.scrollTo($('#historia2'), 500); });
+				$('#link7').click(function() { $.scrollTo($('#uklad2'), 500); });
+				$('#link8').click(function() { $.scrollTo($('#zdj2'), 500); });
+				
+				<!-- ######################## BORSZYN WIELKI ######################## -->
+				
+				$('#link9').click(function() { $.scrollTo($('#historia3'), 1000); });
+				$('#link10').click(function() { $.scrollTo($('#uklad3'), 1000); });
+				$('#link11').click(function() { $.scrollTo($('#zdj3'), 1000); });
+				
+				<!-- ######################## BORSZYN MAŁY ######################## -->
+				
+				$('#link12').click(function() { $.scrollTo($('#historia4'), 1000); });
+				$('#link13').click(function() { $.scrollTo($('#uklad4'), 1000); });
+				$('#link14').click(function() { $.scrollTo($('#zdj4'), 1000); });
 				
 			}
 			);
@@ -57,6 +73,40 @@
 			
 		
 		</script>
+		
+		<script>
+    // Po załadowaniu strony
+    document.addEventListener("DOMContentLoaded", function() {
+        // Nowy <div>
+        var backgroundCanvas = document.createElement("div");
+        // Style CSS. Długość animiacji pow/pom, kursor, środek ekranu, ukrycie.
+        backgroundCanvas.style.cssText = "position: fixed; top: 50%; left: 50%; width: 0; height: 0; z-index: 1; \
+        background: rgba(0,0,0,0.9) none center/contain no-repeat; transition: all .8s ease-out; cursor: zoom-out;";
+        // Dodanie do DOM
+        document.body.appendChild(backgroundCanvas);
+        // Czapka niewidka po kliknięciu w powiększony obrazek, czyli powrót do stanu 0
+        backgroundCanvas.onclick = function() { 
+            backgroundCanvas.style.top = "50%"; //Modyfikacja tylko animowanych styli css
+            backgroundCanvas.style.left = "50%";
+            backgroundCanvas.style.width = "0";
+            backgroundCanvas.style.height = "0";
+        };
+        // Kolekcja wszystkich elementów (miniaturek) z .u-blowUpImg
+        var zoomInImgLinks = document.getElementsByClassName("u-blowUpImg");
+        // Dodanie obsługi kliknięcia na każdej miniaturce
+        for(var i=0; i<zoomInImgLinks.length; ++i) zoomInImgLinks[i].addEventListener("click", function(e) {
+            // Nie otwieraj linka i użyj javascript do powiększenia
+            e.preventDefault();
+            // Pokaż obrazek z href i animuj style (transition: all .8s ease-out;)
+            backgroundCanvas.style.backgroundImage = "url('"+e.target.parentNode.href+"')";
+            backgroundCanvas.style.top = "0";
+            backgroundCanvas.style.left = "0";
+            backgroundCanvas.style.width = "100%";
+            backgroundCanvas.style.height = "100%";
+        })
+    })
+		</script>
+		
 					
 	</head>
 
@@ -80,7 +130,7 @@
 						<a href="/" onClick="op('bojanowo'); return false; "><span style="color: #00cc00">Bojanowo</a></span>
 							<div id="bojanowo" style="display:none">
 							
-								<ol><a id="link3" href="# " style="color: black"><p>Historia stacji</p></a>		
+								<ol><a id="link3" href="# " style="color: black"><p>Opis stacji</p></a>		
 								<a id="link4" href="# " style="color: black"><p>Układ torowy</p></a>
 								<a id="link5" href="# " style="color: black"><p>Zdjęcia</p></a>
 
@@ -92,111 +142,154 @@
 					<li type="square"><span style="color: #00b36b"></span>
 						<a href="/" onClick="op('zaborowice'); return false; "><span style="color: #00b36b">Zaborowice</a></span>
 							<div id="zaborowice" style="display:none">
-								<p>Historia stacji</p>
-								<p>Układ torowy</p>
-								<p>Zdjęcia</p>
+								
+								<ol><a id="link6" href="# " style="color: black"><p>Opis stacji</p></a>
+								<a id="link7" href="# " style="color: black"><p>Układ torowy</p></a>
+								<a id="link8" href="# " style="color: black"><p>Zdjęcia</p></a>
+								
 							</div>
 					</li>
+					
+						<!-- ######################## BORSZYN WIELKI ######################## -->
+					
 					<li type="square"><span style="color: #00b36b"></span>
 						<a href="/" onClick="op('borszyn1'); return false; "><span style="color: #00b36b">Borszyn Wielki</a></span>
 							<div id="borszyn1" style="display:none">
-								<p>Historia stacji</p>
-								<p>Układ torowy</p>
-								<p>Zdjęcia</p>
+							
+								<ol><a id="link9" href="# " style="color: black"><p>Opis stacji</p></a>
+								<a id="link10" href="# " style="color: black"><p>Układ torowy</p></a>
+								<a id="link11" href="# " style="color: black"><p>Zdjęcia</p></a>
+								
 							</div>
+							
+						<!-- ######################## BORSZYN MAŁY ######################## -->
+							
 					</li>
 					<li type="square"><span style="color: #00b36b"></span>
 						<a href="/" onClick="op('borszyn2'); return false; "><span style="color: #00b36b">Borszyn Mały</a></span>
 							<div id="borszyn2" style="display:none">
-								<p>Historia stacji</p>
-								<p>Układ torowy</p>
-								<p>Zdjęcia</p>
+								<ol><a id="link12" href="# " style="color: black"><p>Opis stacji</p></a>
+								<a id="link13" href="# " style="color: black"><p>Układ torowy</p></a>
+								<a id="link14" href="# " style="color: black"><p>Zdjęcia</p></a>
 							</div>
+						
+						<!-- ######################## GÓRA ŚLĄSKA ######################## -->
+						
 					</li>
 					<li type="square"><span style="color: #00b36b"></span>
 						<a href="/" onClick="op('gora'); return false; "><span style="color: #00b36b">Góra Śląska</a></span>
 							<div id="gora" style="display:none">
-								<p>Historia stacji</p>
+								<p>Opis stacji</p>
 								<p>Układ torowy</p>
 								<p>Zdjęcia</p>
 							</div>
+						
+						<!-- ######################## SŁAWĘCICE GÓROWSKIE ######################## -->
+						
 					</li>
 					<li type="square"><span style="color: #800000"></span>
 						<a href="/" onClick="op('slawecice'); return false; "><span style="color: #800000">Sławęcice Górowskie</a></span>
 							<div id="slawecice" style="display:none">
-								<p>Historia stacji</p>
+								<p>Opis stacji</p>
 								<p>Układ torowy</p>
 								<p>Zdjęcia</p>
 							</div>
+						
+						<!-- ######################## STRUMIENNA ######################## -->
+						
 					</li>
 					<li type="square"><span style="color: #800000"></span>
 						<a href="/" onClick="op('strumienna'); return false; "><span style="color: #800000">Strumienna</a></span>
 							<div id="strumienna" style="display:none">
-								<p>Historia stacji</p>
+								<p>Opis stacji</p>
 								<p>Układ torowy</p>
 								<p>Zdjęcia</p>
 							</div>
+						
+						<!-- ######################## NARRATÓW ######################## -->
+						
 					</li>
 					<li type="square"><span style="color: #800000"></span>
 						<a href="/" onClick="op('narratow'); return false; "><span style="color: #800000">Narratów</a></span>
 							<div id="narratow" style="display:none">
-								<p>Historia stacji</p>
+								<p>Opis stacji</p>
 								<p>Układ torowy</p>
 								<p>Zdjęcia</p>
 							</div>
+						
+						<!-- ######################## NIECHLÓW ######################## -->
+						
 					</li>
 					<li type="square"><span style="color: #800000"></span>
 						<a href="/" onClick="op('niechlow'); return false; "><span style="color: #800000">Niechlów</a></span>
 							<div id="niechlow" style="display:none">
-								<p>Historia stacji</p>
+								<p>Opis stacji</p>
 								<p>Układ torowy</p>
 								<p>Zdjęcia</p>
 							</div>
+						
+						<!-- ######################## DRYŻYNA ######################## -->
+						
 					</li>
 					<li type="square"><span style="color: #800000"></span>
 						<a href="/" onClick="op('dryzyna'); return false; "><span style="color: #800000">Dryżyna</a></span>
 							<div id="dryzyna" style="display:none">
-								<p>Historia stacji</p>
+								<p>Opis stacji</p>
 								<p>Układ torowy</p>
 								<p>Zdjęcia</p>
 							</div>
+						
+						<!-- ######################## SZLICHTYNGOWA ######################## -->
+						
 					</li>
 					<li type="square"><span style="color: #800000"></span>
 						<a href="/" onClick="op('szlichtyngowa'); return false; "><span style="color: #800000">Szlichtyngowa</a></span>
 							<div id="szlichtyngowa" style="display:none">
-								<p>Historia stacji</p>
+								<p>Opis stacji</p>
 								<p>Układ torowy</p>
 								<p>Zdjęcia</p>
 							</div>
+						
+						<!-- ######################## WILKÓW GŁOGOWSKI ######################## -->
+						
 					</li>
 					<li type="square"><span style="color: #800000"></span>
 						<a href="/" onClick="op('wilkow'); return false; "><span style="color: #800000">Wilków Głogowski</a></span>
 							<div id="wilkow" style="display:none">
-								<p>Historia stacji</p>
+								<p>Opis stacji</p>
 								<p>Układ torowy</p>
 								<p>Zdjęcia</p>
 							</div>
+							
+						<!-- ######################## SERBY WSCHÓD ######################## -->
+						
 					</li>
 					<li type="square"><span style="color: #800000"></span>
 						<a href="/" onClick="op('serby1'); return false; "><span style="color: #800000">Serby Wschód</a></span>
 							<div id="serby1" style="display:none">
-								<p>Historia stacji</p>
+								<p>Opis stacji</p>
 								<p>Układ torowy</p>
 								<p>Zdjęcia</p>
 							</div>
+							
+						<!-- ######################## SERBY ZACHÓD ######################## -->
+							
 					</li>
 					<li type="square"><span style="color: #800000"></span>
 						<a href="/" onClick="op('serby2'); return false; "><span style="color: #800000">Serby Zachód</a></span>
 							<div id="serby2" style="display:none">
-								<p>Historia stacji</p>
+								<p>Opis stacji</p>
 								<p>Układ torowy</p>
 								<p>Zdjęcia</p>
 							</div>
+						
+						<!-- ######################## ODRZYCKO ######################## -->
+						
 					</li>
 					<li type="square"><span style="color: #800000"></span>
 						<a href="/" onClick="op('odrzycko'); return false; "><span style="color: #800000">(podg) Odrzycko</a></span>
 							<div id="odrzycko" style="display:none">
-								<p>Historia posterunku</p>
+								<p>Opis posterunku</p>
 								<p>Układ torowy</p>
 								<p>Zdjęcia</p>
 							</div>
@@ -205,6 +298,8 @@
 					<br></br>
 
 			</div>
+			
+						<!-- ######################## LEGENDA ######################## -->
 			
 			<div id="legenda">
 			
@@ -227,6 +322,8 @@
 			</div>
 			
 			<div id="zawartosc">
+				
+				<!-- ######################## HISTIORIA LINI/OPIS ######################## -->		
 				
 				<p>
 					<center>
@@ -258,9 +355,7 @@
 							<span style="color: #800000">Odrzycko</span> (50.028km). 
 						</p>
 					</center>
-					
-						<!-- ######################## SLAJD 0.1 ######################## -->
-					
+								
 					<center>
 						<p style="text-indent: 5%; ">Linia ta jest linią jednotorową. Otwarcie ruchu na odcinku 
 							<span style="color: #00cc00">Bojanowo</span>
@@ -326,7 +421,7 @@
 				</p>
 				<p id="pociag1">
 				
-					<!-- ######################## SLAJD 0.2 ######################## -->
+					<!-- ######################## POCIĄG SPECJALNY ######################## -->
 				
 					<center>
 						<span style="font-size:30px;">
@@ -359,7 +454,7 @@
 					
 				<br></br>	
 				
-					<!-- ######################## SLAJD 1.1 ######################## -->
+					<!-- ######################## OSTATNI POCIĄG ######################## -->
 					
 					<center id="pociag2">
 						<span style="font-size:35px;">
@@ -370,9 +465,11 @@
 				<p>
 					<center>
 						<span style="font-size:19px;">
-							Ostatnim pociągiem w Górze była lokomotywa <a href="https://ilostan.forumkolejowe.pl/index.php?nav=lok&typ=7&seria=85&lok=5555&numer=116&title=SU45-116" target="_blank" style="color: #1a6600">SU45-116</a>
-							z wagonami osobowymi tak zwanymi Bipa (<a href="https://pl.wikipedia.org/wiki/Bhp" target="_blank" style="color: #1a6600">Bhp wagon piętrowy</a>). Przejazd odbył się 10 grudnia 2011 roku. Udało mi się gdzieś na internetach znaleźć że ktoś odbył ten przejazd
-							i go opisał więc macie do przeczytania 2 artykuły.
+							Ostatnim pociągiem w Górze była lokomotywa 
+							<a href="https://ilostan.forumkolejowe.pl/index.php?nav=lok&typ=7&seria=85&lok=5555&numer=116&title=SU45-116" target="_blank" style="color: #1a6600">SU45-116</a>
+							z wagonami osobowymi tak zwanymi Bipa (
+							<a href="https://pl.wikipedia.org/wiki/Bhp" target="_blank" style="color: #1a6600">Bhp wagon piętrowy</a>). 
+							Przejazd odbył się 10 grudnia 2011 roku. Udało mi się gdzieś na internetach znaleźć że ktoś odbył ten przejazd i go opisał więc macie do przeczytania 2 artykuły.
 							<center>Aby go przeczytać kliknij poniżej a otworzy się plik w pdf'ie.</center>
 							<center>
 							<p><a href="pdf/plik1.pdf" target="ramka_pdf" style="color: #29a329"> Pierwszy Tutaj! </a></p>
@@ -410,6 +507,8 @@
 			</div>
 			<div>
 			
+			<!-- ######################## OPISY ######################## -->
+			
 				<p>
 					<center>
 						<span style="font-size: 80px; color: #1a66ff">
@@ -418,9 +517,11 @@
 					</center>
 				</p>
 			
-				<!-- ######################## BOJANOWO ######################## -->
+				
 			
 				<div id="slajd">
+			
+					<!-- ######################## BOJANOWO OPIS STACJI ######################## -->
 				
 					<center>
 						<span style="font-size:75px; color: #00cc00">Bojanowo</span>
@@ -430,14 +531,19 @@
 						<p>
 							<center id="historia1">
 								<span style="font-size:40px; color= #00cc00">
-									Historia stacji
+									Opis stacji
 								</span>
 							</center>
 						</p>
 						
 						<p style="text-indent: 5%;">
-							Bojanowo znajduje się w wojewódctwie wielkopolskim
+							Bojanowo znajduje się w województwie Wielkopolskim w powiecie Rawickim. W 2017 roku obsługowała 300-499 pasażerów na dobę. Otwarcie nastąpiło w 1856 roku.
+							Na stacji są 2 perony i 3 krawędzie peronowe, semafory są świetlne. Stacja znajduje się na 75.311 km lini kolejowej nr
+							<a href="https://www.atlaskolejowy.net/pl/wielkopolskie/?id=linia&poz=233" target="_blank" style="color: #1a6600">271 Wrocław Główny - Poznań Główny</a>.
+							Zatrzymują się tutaj tylko pociągi regionalne jadące w kierunku Poznań Główny lub Wrocław Główny.
 						</p>
+						
+						<!-- ######################## BOJANOWO UKŁAD TORÓW ######################## -->
 						
 						<center>
 							<span id ="uklad1" style="font-size:40px; color= #00cc00">
@@ -449,10 +555,14 @@
 						</center>
 					
 						<center>
-							<img src="img/bojanowo/bojanowo.png" width="1200" height="300">
+							<a class="u-blowUpImg" href="img/bojanowo/bojanowo.png">
+								<img src="img/bojanowo/bojanowo.png" width="1170" height="304">
+							</a>
 						</center>
 						
 							<br></br>
+						
+						<!-- ######################## BOJANOWO ZDJĘCIA ######################## -->
 						
 						<center>
 							<span id ="zdj1" style="font-size:40px; color= #00cc00">
@@ -463,7 +573,345 @@
 						
 						</center>
 						
+						<center>
+							
+							<a class="u-blowUpImg" href="img/bojanowo/1914.jpg">
+								<img src="img/bojanowo/1914.jpg" width="1000" height="624" >
+							</a>
+								<br /><br />
+									<span style="font-size:40px; color= #00cc00">
+										1914r.
+									</span>
+								<br /><br />
+								<br /><br />
+							<a class="u-blowUpImg" href="img/bojanowo/2012.jpg">
+								<img src="img/bojanowo/2012.jpg" width="1000" height="782">
+							</a>
+								<br /><br />
+									<span style="font-size:40px; color= #00cc00">
+										2012r.
+									</span>
+								<br /><br />
+								<br /><br />
+							<a class="u-blowUpImg" href="img/bojanowo/2021.jpg">
+								<img src="img/bojanowo/2021.jpg" width="1000" height="695" >
+							</a>
+								<br /><br />
+									<span style="font-size:40px; color= #00cc00">
+										2021r.
+									</span>
+								<br /><br />
+								<br /><br />
+						</center>
+						
 					</span>
+					
+					<!-- ######################## ZABOROWICE OPIS STACJI ######################## -->
+					
+					<center>
+						<span style="font-size:75px; color: #00b36b">Zaborowice</span>
+					</center>
+					
+					<span style="font-size:20px; color= #00cc00">
+						<p>
+							<center id="historia2">
+								<span style="font-size:40px; color= #00cc00">
+									Opis stacji
+								</span>
+							</center>
+						</p>
+							
+						<p style="text-indent: 5%;">
+							Zaborowice są położone w województwie Wielkopolskim, w powiecie Rawickim. Znajdują się na 5.350 km linii. Stacja posiadała 1 peron a otwarcie nastąpiło w 1885 roku. Na początku nazywała się Saborwitz i była stacją (ST)
+							w 1940r. zmieniono nazwę na Waffendorf a 5 lat później w 1945r. na Zaborowice wtedy też zmieniła się stacja na przystanek i ładownia (LPO), przed 1990r. jako przystanek (PO) w 1992r przystanek (PO) był już nieczynny.
+						</p>
+						
+						<!-- ######################## ZABOROWICE UKŁAD TORÓW ######################## -->
+						
+						<center>
+							<span id ="uklad2" style="font-size:40px; color= #00cc00">
+								Układ torowy
+							</span>
+						
+							<br></br>
+						
+						</center>
+					
+						<center>
+							<a class="u-blowUpImg" href="img/zaborowice/zaborowice.png">
+								<img src="img/zaborowice/zaborowice.png" width="1170" height="323">
+							</a>
+						</center>
+						
+							<br></br>
+							
+							<!-- ######################## ZABOROWICE ZDJĘCIA ######################## -->
+						
+						<center>
+							<span id ="zdj2" style="font-size:40px; color= #00cc00">
+								Zdjęcia
+							</span>
+						
+							<br></br>
+						
+						</center>
+						
+						<center>
+							
+							<a class="u-blowUpImg" href="img/zaborowice/1910-1925.jpg">
+								<img src="img/zaborowice/1910-1925.jpg" width="1000" height="639" >
+							</a>
+								<br /><br />
+									<span style="font-size:40px; color= #00cc00">
+										1910-1925r.
+									</span>
+								<br /><br />
+								<br /><br />
+							<a class="u-blowUpImg" href="img/zaborowice/2001.jpg">
+								<img src="img/zaborowice/2001.jpg" width="1000" height="691" >
+							</a>
+								<br /><br />
+									<span style="font-size:40px; color= #00cc00">
+										2001r. 
+									</span>
+								<br /><br />
+									<span style="font-size:20px; color= #00cc00">
+										Parowóz 
+										<a href="https://ilostan.forumkolejowe.pl/index.php?nav=lok&typ=9&seria=130&lok=12964&numer=59&title=Ol49-59" target="_blank" style="color: #1a6600">Ol49-59</a>
+										prowadzi pociąg specjalny relacji Leszno - Bojanowo - Sławęcice Górowskie - Bojanowo - Leszno - Wolsztyn
+									</span>
+								<br /><br />
+								<br /><br />
+							<a class="u-blowUpImg" href="img/zaborowice/2008.jpg">
+								<img src="img/zaborowice/2008.jpg" width="1000" height="750" >
+							</a>
+								<br /><br />
+									<span style="font-size:40px; color= #00cc00">
+										2008r.
+									</span>
+								<br /><br />
+								<br /><br />
+								
+							<a class="u-blowUpImg" href="img/zaborowice/2013-1.jpg">
+								<img src="img/zaborowice/2013-1.jpg" width="1000" height="698" >
+							</a>
+								<br /><br />
+							<a class="u-blowUpImg" href="img/zaborowice/2013-2.jpg">
+								<img src="img/zaborowice/2013-2.jpg" width="1000" height="750" >
+							</a>
+								<br /><br />
+							<a class="u-blowUpImg" href="img/zaborowice/2013-3.jpg">
+								<img src="img/zaborowice/2013-3.jpg" width="1000" height="641" >
+							</a>
+								<br /><br />
+							<a class="u-blowUpImg" href="img/zaborowice/2013-4.jpg">
+								<img src="img/zaborowice/2013-4.jpg" width="1000" height="750" >
+							</a>
+								<br /><br />
+									<span style="font-size:40px; color= #00cc00">
+										2013r.
+									</span>
+								<br /><br />
+								<br /><br />
+							<a class="u-blowUpImg" href="img/zaborowice/2017.jpg">
+								<img src="img/zaborowice/2017.jpg" width="1000" height="666" >
+							</a>
+								<br /><br />
+									<span style="font-size:40px; color= #00cc00">
+										2017r.
+									</span>
+								<br /><br />
+								<br /><br />
+								
+								
+						</center>
+						
+					</span>
+						
+						<!-- ######################## BORSZYN WIELKI OPIS STACJI ######################## -->
+						
+						<center>
+							<span style="font-size:75px; color: #00b36b">Borszyn Wielki</span>
+						</center>
+						
+					<span style="font-size:20px; color= #00cc00">
+						<p>
+							<center id="historia3">
+								<span style="font-size:40px; color= #00cc00">
+									Opis stacji
+								</span>
+							</center>
+						</p>
+							
+						<p style="text-indent: 5%;">
+							Borszyn Wielki położony jest na Dolnym Śląsku w powiecie Górowskim. Przysanek był oddalony od wsi około 700 metrów a znajdował się na 8.575 km linii. Posiadał on 1 peron, otwarto go w 1885r. i nazywał się Heinzebortschen w późniejszym czasie w 1905r. stał się przystanekiem i ładownią (LPO)
+							przed 1940r była zmiana nazwy na Nordingen. Po 1945r. była kolejna zmiana nazwy na Boryszyn Polski a ostatecznie na Borszyn Wielki zmieniono w 1947r. Przed 1990r. znowu był to przystanek (PO) a po 1992r. przystanek (PO) został nieczynny.
+						</p>
+					
+						<!-- ######################## BORSZYN WIELKI UKŁAD TORÓW ######################## -->
+					
+						<center>
+							<span id ="uklad3" style="font-size:40px; color= #00cc00">
+								Układ torowy
+							</span>
+						
+							<br></br>
+						
+						</center>
+					
+						<center>
+							<a class="u-blowUpImg" href="img/borszyn wielki/borszynwielki.png">
+								<img src="img/borszyn wielki/borszynwielki.png" width="1170" height="224">
+							</a>
+						</center>
+						
+							<br></br>
+						
+						<!-- ######################## BORSZYN WIELKI ZDJĘCIA ######################## -->
+						
+						<center>
+							<span id ="zdj3" style="font-size:40px; color= #00cc00">
+								Zdjęcia
+							</span>
+						
+							<br></br>
+						
+						</center>
+						
+						<center>
+						
+							<a class="u-blowUpImg" href="img/borszyn wielki/2011.jpg">
+								<img src="img/borszyn wielki/2011.jpg" width="1000" height="628" >
+							</a>
+								<br /><br />
+									<span style="font-size:40px; color= #00cc00">
+										2011r.
+									</span>
+								<br /><br />
+								<br /><br />
+							<a class="u-blowUpImg" href="img/borszyn wielki/2013-1.jpg">
+								<img src="img/borszyn wielki/2013-1.jpg" width="1000" height="750" >
+							</a>
+								<br /><br />
+							<a class="u-blowUpImg" href="img/borszyn wielki/2013-2.jpg">
+								<img src="img/borszyn wielki/2013-2.jpg" width="1000" height="750" >
+							</a>
+								<br /><br />
+									<span style="font-size:40px; color= #00cc00">
+										2013r.
+									</span>
+								<br /><br />
+								<br /><br />
+						</center>
+						
+					</span>
+					
+						<!-- ######################## BORSZYN MAŁY OPIS STACJI ######################## -->
+						
+						<center>
+							<span style="font-size:75px; color: #00b36b">Borszyn Mały</span>
+						</center>
+						
+					<span style="font-size:20px; color= #00cc00">
+						<p>
+							<center id="historia4">
+								<span style="font-size:40px; color= #00cc00">
+									Opis stacji
+								</span>
+							</center>
+						</p>
+							
+						<p style="text-indent: 5%;">
+							Borszyn Mały położony jest na Dolnym Śląsku w powiecie Górowskim. Przysanek był oddalony od wsi około 300 metrów a znajdował się na 10.852 km linii. Posiadał on 1 peron, otwarto go w 1885r. Od samego początku był to przystanek i ładownia (LPO)
+							i nazywał się Kalteborschen, przed 1940r. była zmiana na Grandingen, a po 1945r. na Boryszyn Zimny a ostatecznie na Borszyn Mały w 1947r. Przed 1990r. był już to tylko przystanek (PO) a po 1992r. nieczynny już był.
+						</p>
+						
+						<!-- ######################## BORSZYN MAŁY UKŁAD TORÓW ######################## -->
+					
+						<center>
+							<span id ="uklad4" style="font-size:40px; color= #00cc00">
+								Układ torowy
+							</span>
+						
+							<br></br>
+						
+						</center>
+					
+						<center>
+							<a class="u-blowUpImg" href="img/borszyn maly/borszynmaly.png">
+								<img src="img/borszyn maly/borszynmaly.png" width="1170" height="244">
+							</a>
+						</center>
+						
+							<br></br>
+						
+						<!-- ######################## BORSZYN MAŁY ZDJĘCIA ######################## -->
+						
+						<center>
+							<span id ="zdj4" style="font-size:40px; color= #00cc00">
+								Zdjęcia
+							</span>
+						
+							<br></br>
+						
+						</center>
+						
+						<center>
+						
+							<a class="u-blowUpImg" href="img/borszyn maly/2011.jpg">
+								<img src="img/borszyn maly/2011.jpg" width="1000" height="628" >
+							</a>
+								<br /><br />
+									<span style="font-size:40px; color= #00cc00">
+										2011r.
+									</span>
+								<br /><br />
+								<br /><br />
+							<a class="u-blowUpImg" href="img/borszyn maly/2013-1.jpg">
+								<img src="img/borszyn maly/2013-1.jpg" width="1000" height="750" >
+							</a>
+								<br /><br />
+							<a class="u-blowUpImg" href="img/borszyn maly/2013-2.jpg">
+								<img src="img/borszyn maly/2013-2.jpg" width="1000" height="498" >
+							</a>
+								<br /><br />
+							<a class="u-blowUpImg" href="img/borszyn maly/2013-3.jpg">
+								<img src="img/borszyn maly/2013-3.jpg" width="1000" height="750" >
+							</a>
+								<br /><br />
+									<span style="font-size:40px; color= #00cc00">
+										2013r.
+									</span>
+								<br /><br />
+								<br /><br />
+									<a class="u-blowUpImg" href="img/borszyn maly/2017.jpg">
+								<img src="img/borszyn maly/2017.jpg" width="1000" height="666" >
+							</a>
+								<br /><br />
+									<span style="font-size:40px; color= #00cc00">
+										2017r.
+									</span>
+								<br /><br />
+								<br /><br />
+									<a class="u-blowUpImg" href="img/borszyn maly/.jpg">
+								<img src="img/borszyn maly/.jpg" width="1000" height="1000" >
+							</a>
+								<br /><br />
+									<span style="font-size:40px; color= #00cc00">
+										2022r.
+									</span>
+								<br /><br />
+								<br /><br />
+								
+						</center>
+						
+					</span>
+					
+					<!-- ######################## GÓRA ŚLĄSKA OPIS STACJI ######################## -->
+						
+						<center>
+							<span style="font-size:75px; color: #00b36b">Góra Śląska</span>
+						</center>
 					
 				</div>
 					
